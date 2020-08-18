@@ -29,6 +29,7 @@ jobs:
         fileName: CHANGELOG.md
         # Label to ignore changelog check
         noChangelogLabel: # optional, default is no changelog 
+      env: GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
     
     # Runs a single command using the runners shell
