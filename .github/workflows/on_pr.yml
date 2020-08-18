@@ -22,7 +22,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Changelog checker
+      - name: Changelog checkerr
         uses: Zomzog/changelog-checker@v1.0.0
         with:
           fileName: CHANGELOG.md
