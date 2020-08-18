@@ -15,16 +15,16 @@ jobs:
   changelock_checker:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
 
-    - uses: actions/checkout@v2
-
-    - name: Changelog checker
-      uses: Zomzog/changelog-checker@v1.0.0
-      with:
-        fileName: CHANGELOG.md
-        noChangelogLabel: 'CHANGELOG.md file is not updated'
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Changelog checker
+        uses: Zomzog/changelog-checker@v1.0.0
+        with:
+          fileName: CHANGELOG.md
+          noChangelogLabel: 'CHANGELOG.md file is not updated'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   # This workflow contains a single job called "build"
   build:
