@@ -1,2 +1,5 @@
 added github action and check.py file
-EJLEWJ
+blah
+updated , runs on macos too
+fhg
+wefff
