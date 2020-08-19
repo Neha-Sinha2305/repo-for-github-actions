@@ -14,7 +14,7 @@ on:
 jobs:
   changelog:
     runs-on: ubuntu-latest
-    - name: Changelog checker
+    - name: Changelog checkerr
       uses: Zomzog/changelog-checker@v1.0.0
       with:
         fileName: CHANGELOG.md
