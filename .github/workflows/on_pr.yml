@@ -15,12 +15,12 @@ jobs:
   changelog-enforcer:
     runs-on: ubuntu-latest
     steps:
-      uses: dangoslen/changelog-enforcer@v1.1.1
-      with:
-        changeLogPath: 'CHANGELOG.md'
-        skipLabel: 'Skip-Changelog'
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: dangoslen/changelog-enforcer@v1.1.1
+        with:
+          changeLogPath: 'CHANGELOG.md'
+          skipLabel: 'Skip-Changelog'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   # This workflow contains a single job called "build"
   build:
