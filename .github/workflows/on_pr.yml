@@ -12,16 +12,15 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  changelog:
+  changelog-enforcer:
     runs-on: ubuntu-latest
     steps:
-      - name: Changelog checkerr
-        uses: Zomzog/changelog-checker@v1.0.0
-        with:
-          fileName: CHANGELOG.md
-          noChangelogLabel: 'Changelog file is not updated'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: dangoslen/changelog-enforcer@v1.1.1
+      with:
+        changeLogPath: 'CHANGELOG.md'
+        skipLabel: 'Skip-Changelog'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   # This workflow contains a single job called "build"
   build:
