@@ -37,10 +37,10 @@ jobs:
       - name: Test labels
         run: echo "$LABELS1"
 
-
-      - name: Check if label contains question
-        if: ${{env.LABELS1}} == ['question']
-        run: echo "it works"
+#
+#      - name: Check if label contains question
+#        if: ${{env.LABELS1}} == ['question']
+#        run: echo "it works"
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
