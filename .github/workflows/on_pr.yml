@@ -51,8 +51,8 @@ jobs:
         run: echo "it works with github does not contain question"
 
       - if: contains(github.event.pull_request.labels.*.name,'question')
-          name: via normal way check if
-          run: echo "it works with github contains and label is question"
+        name: via normal way check if
+        run: echo "it works with github contains and label is question"
 
       - if: false == contains(github.event.pull_request.labels.*.name,'question')
         name: via normal way check else
