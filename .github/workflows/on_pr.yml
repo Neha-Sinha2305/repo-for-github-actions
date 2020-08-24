@@ -7,7 +7,7 @@ name: CI
 on:
   pull_request:
     branches: [ master ]
-    types: [opened, synchronize, reopened, edited, closed, labeled]
+    types: [opened, synchronize, reopened, edited, closed, labeled, unlabeled]
 
 env:
   LABELS1: ${{ toJson(github.event.pull_request.labels.*.name) }}
@@ -42,9 +42,13 @@ jobs:
         if: ${{env.LABELS1}} == ["question"]
         run: echo "it works"
 
-      - name: Check if github contains works
-        if: contains(${{env.LABELS1}},"question")
-        run: echo "it works with github contains"
+      - if: contains(${{env.LABELS1}},"question")
+        name: Check if github contains question
+        run: echo "it works with github contains and label is question"
+
+      - if: !contains(${{env.LABELS1}},"question")
+        name: Check if github does not contain question
+        run: echo "it works with github does not contain question"
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
