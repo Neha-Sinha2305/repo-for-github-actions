@@ -46,7 +46,7 @@ jobs:
         name: Check if github contains question
         run: echo "it works with github contains and label is question"
 
-      - if: ! contains(${{env.LABELS1}},"question")
+      - if: false == contains(${{env.LABELS1}},"question")
         name: Check if github does not contain question
         run: echo "it works with github does not contain question"
 
