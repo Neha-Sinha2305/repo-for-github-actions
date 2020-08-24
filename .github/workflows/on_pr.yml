@@ -30,6 +30,7 @@ jobs:
     runs-on: macos-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
+    if: contains(${{env.LABELS1}},"question")
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
