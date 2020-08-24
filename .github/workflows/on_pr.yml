@@ -35,13 +35,13 @@ jobs:
 
       - name: Test labels
         env:
-          LABELS1: ${{ github.event.pull_request.labels.*.name }}
+          LABELS1: ${{ toJson(github.event.pull_request.labels.*.name) }}
         run: echo "$LABELS1"
 
-#
-#      - name: Check if label contains question
-#        if: ${{env.LABELS1}} == ['question']
-#        run: echo "it works"
+
+      - name: Check if label contains question
+        if: ${{LABELS1}} == ["question"]
+        run: echo "it works"
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
