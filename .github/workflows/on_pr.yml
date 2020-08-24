@@ -35,7 +35,7 @@ jobs:
 
       - name: Test labels
         env:
-          LABELS1: toJson(github.event.pull_request.labels.*.name)
+          LABELS1: ${{ toJson(github.event.pull_request.labels.*.name) }}
         run: echo "$LABELS1"
 
       # Runs a single command using the runners shell
