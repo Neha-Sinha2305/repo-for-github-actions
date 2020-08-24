@@ -39,7 +39,7 @@ jobs:
 
 
       - name: Check if label contains question
-        if: $LABELS1 == ['question']
+        if: '$LABELS1' == ['question']
         run: echo "it works"
 
       # Runs a single command using the runners shell
