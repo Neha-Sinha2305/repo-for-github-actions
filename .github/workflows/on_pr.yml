@@ -9,22 +9,7 @@ on:
     branches: [ master ]
     types: [opened, synchronize, reopened, edited, closed, labeled, unlabeled]
 
-env:
-  LABELS1: ${{ toJson(github.event.pull_request.labels.*.name) }}
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-#  enforce-changelog:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v1
-#      - uses: dangoslen/changelog-enforcer@v1.1.1
-#        with:
-#          changeLogPath: 'CHANGELOG.md'
-#          skipLabel: 'test-skipping-changelog'
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  # This workflow containss a single job called "build"
   build:
     # The type of runner that the job will run on
     runs-on: macos-latest
@@ -34,33 +19,13 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Test labels
-        run: echo "$LABELS1"
+      - name: Find and Replace
+        uses: shitiomatic/str-replace@master
+        with:
+          find: "'"
+          replace: "\'"
+          include: "CHANGELOG.md"  # Will match all README.md files in any nested directory
 
-
-      - name: Check if label contains question
-        if: ${{env.LABELS1}} == ["question"]
-        run: echo "it works"
-
-      - if: contains(${{env.LABELS1}},'question')
-        name: Check if github contains question
-        run: echo "it works with github contains and label is question"
-
-      - if: false == contains(${{env.LABELS1}},'question')
-        name: Check if github does not contain question
-        run: echo "it works with github does not contain question"
-
-      - if: contains(github.event.pull_request.labels.*.name,'question')
-        name: via normal way check if
-        run: echo "it works with github contains and label is question"
-
-      - if: false == contains(github.event.pull_request.labels.*.name,'question')
-        name: via normal way check else
-        run: echo "it works with github does not contain question"
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
