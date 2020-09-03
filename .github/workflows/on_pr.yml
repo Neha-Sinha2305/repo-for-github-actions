@@ -22,8 +22,8 @@ jobs:
       - name: Find and Replace
         uses: shitiomatic/str-replace@master
         with:
-          find: "know"
-          replace: "hello"
+          find: "'"
+          replace: "\'"
           include: "CHANGELOG.md"  # Will match all README.md files in any nested directory
 
       - name: Get Changelog Entry
