@@ -23,7 +23,7 @@ jobs:
         run: python .github/action/find-replace.py
         env:
           find: "'"
-          replace: "'\\''"
+          replace: "'"
           FILE_NAME: CHANGELOG.md
 
       - name: Get Changelog Entry
