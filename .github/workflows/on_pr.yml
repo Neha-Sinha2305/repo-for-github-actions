@@ -22,8 +22,8 @@ jobs:
       - name: Find and replace
         run: python .github/action/string-replace.py
         env:
-          find: "admin"
-          replace: "BLAHHHH"
+          find: "'"
+          replace: ""
           FILE_NAME: CHANGELOG.md
 
 #      - name: Find and Replace

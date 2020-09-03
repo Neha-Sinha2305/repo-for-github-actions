@@ -7,5 +7,5 @@ with open(filepath) as f:
 with open(filepath, "w") as f:
     f.write(newText)
 
-with open(filepath, "r") as text_file:
-    print(text_file.read())
+with open(filepath, "r") as f:
+    print(f.read())
