@@ -1,5 +1,5 @@
 # This is a basic workflow to help you get started with Actions
-
+#replace: "'\\''"
 name: CI
 
 # Controls when the action will run. Triggers the workflow on push or pull request
@@ -7,23 +7,14 @@ name: CI
 on:
   pull_request:
     branches: [ master ]
-    types: [opened, synchronize, reopened, edited, closed]
+    types:
+      - closed
+      - labeled
+      - edited
+      - synchronize
+      - opened
 
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  enforce-changelog:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: dangoslen/changelog-enforcer@v1.1.1
-        with:
-          changeLogPath: 'CHANGELOG.md'
-          skipLabel: 'Skip-Changelog'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
     runs-on: macos-latest
@@ -33,9 +24,24 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: Find and replace
+        run: python .github/action/find-replace.py
+        env:
+          find: "'"
+          replace: "'\\''"
+          FILE_NAME: CHANGELOG.md
+
+      - name: Get Changelog Entry
+        id: changelog_reader
+        uses: mindsers/changelog-reader-action@v1.1.0
+        with:
+          path: CHANGELOG.md
+
+      - name: Echo package.json
+        run: echo '${{ steps.changelog_reader.outputs.log_entry }}'
+
+
+
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
