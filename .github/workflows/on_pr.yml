@@ -32,16 +32,8 @@ jobs:
         with:
           path: CHANGELOG.md
 
-#      - name: Find and Replace
-#        uses: shitiomatic/str-replace@master
-#        with:
-#          find: "'"
-#          replace: ""
-#          include: "CHANGELOG.md"
-
-
       - name: Echo package.json
-        run: echo ${{ steps.changelog_reader.outputs.log_entry }}
+        run: echo '${{ steps.changelog_reader.outputs.log_entry }}'
 
 
 
