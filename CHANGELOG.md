@@ -6,7 +6,7 @@
 
 ### Added
 - update-box as a prereq for the template-example target's in the makefile
-- know for presence of consul binary
+- know for presence of consul's binary
 - Consul in know Required software section of the README file
 
 ### Fixed
