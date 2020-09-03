@@ -27,10 +27,15 @@ jobs:
           include: "CHANGELOG.md"  # Will match all README.md files in any nested directory
 
       - name: Get Changelog Entry
-        id: changelog_reader
-        uses: mindsers/changelog-reader-action@v1.1.0
+        id: package
+        uses: juliangruber/read-file-action@v1
         with:
           path: CHANGELOG.md
+
+      - name: Echo package.json
+        run: echo ${{ steps.package.outputs.content }}
+
+
 
 
       # Runs a set of commands using the runners shell
