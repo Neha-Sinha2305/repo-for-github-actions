@@ -19,12 +19,19 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Find and Replace
-        uses: shitiomatic/str-replace@master
-        with:
-          find: "'"
-          replace: ""
-          include: "CHANGELOG.md"  # Will match all README.md files in any nested directory
+      - name: Find and replace
+        run: python .github/action/string-replace.py
+        env:
+          find: "admin"
+          replace: "BLAHHHH"
+          FILE_NAME: "CHANGELOG.md"
+
+#      - name: Find and Replace
+#        uses: shitiomatic/str-replace@master
+#        with:
+#          find: "'"
+#          replace: ""
+#          include: "CHANGELOG.md"
 
       - name: Get Changelog Entry
         id: package
