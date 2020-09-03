@@ -24,7 +24,7 @@ jobs:
         env:
           find: "admin"
           replace: "BLAHHHH"
-          FILE_NAME: "CHANGELOG.md"
+          FILE_NAME: CHANGELOG.md
 
 #      - name: Find and Replace
 #        uses: shitiomatic/str-replace@master
