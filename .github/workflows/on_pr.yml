@@ -16,7 +16,7 @@ jobs:
     runs-on: macos-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
-    if: github.repository != 'Neha-Sinha2305/repo-for-github-actions'
+    if: github.repository == 'Neha-Sinha2305/repo-for-github-actions'
     steps:
       - uses: actions/checkout@v2    
       
