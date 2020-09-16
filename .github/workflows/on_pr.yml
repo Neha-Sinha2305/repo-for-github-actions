@@ -20,19 +20,20 @@ jobs:
     steps:
       - uses: actions/checkout@v2    
       
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - if: github.repository != 'Neha-Sinha2305/repo-for-github-actions'
-        name: Run a one-line script
+      - name: Run if not in nehas repo
+        if: github.repository != 'Neha-Sinha2305/repo-for-github-actions'
+      - name: Run a one-line script
         run: echo Hello, world!
       - name: Run a multi-line script
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-
-      - if: github.repository == 'Neha-Sinha2305/repo-for-github-actions'
-        name: Run hello neha
+      
+      - name: Run if in nehas repo
+        if: github.repository == 'Neha-Sinha2305/repo-for-github-actions'
+      - name: Run a one-line script neha
         run: echo Hello, neha!
-      - name: Run neha multi-line script
+      - name: Run a multi-line script neha
         run: |
           echo Add other actions to build neha,
           echo test, and deploy your project.
