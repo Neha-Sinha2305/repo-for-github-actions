@@ -24,7 +24,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           title: "Update minio module to the latest release"
-          repo: "https://github.com/Neha-Sinha2305/test-demo"  
+          repo: "/test-demo"  
       - name: Print outputs
         run: |
             echo ${{ steps.my_step_id.outputs.id }}
