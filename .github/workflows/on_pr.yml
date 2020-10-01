@@ -22,7 +22,7 @@ jobs:
       - uses: maxkomarychev/oction-create-issue@v0.7.1
         id: my_step_id
         with:
-          token: ${{ secrets.MY_NEW_SECRET }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           title: "Update minio module to the latest release++"
           body: "Update minio- module in the following repo: https://github.com/fredrikhgrelland/terraform-nomad-presto"
       - name: Print outputs
