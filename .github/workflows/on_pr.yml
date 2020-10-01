@@ -23,8 +23,8 @@ jobs:
         id: my_step_id
         with:
           token: ${{ secrets.MY_NEW_SECRET }}
-          title: "Update minio module to the latest release"
-          repo: "test-demo"  
+          title: "Update minio module to the latest release++"
+          body: "Update minio- module in the following repo: https://github.com/fredrikhgrelland/terraform-nomad-presto"
       - name: Print outputs
         run: |
             echo ${{ steps.my_step_id.outputs.id }}
