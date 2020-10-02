@@ -24,7 +24,13 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           title: "Update minio module to the latest release++"
-          body: "Update minio- module in the following repo: https://github.com/fredrikhgrelland/terraform-nomad-presto"
+          body: |
+            |
+            Update minio- module in the following repos
+              - [ ]  https://github.com/fredrikhgrelland/terraform-nomad-presto
+              - [ ]  https://github.com/fredrikhgrelland/terraform-nomad-hive
+              - [ ]  https://github.com/fredrikhgrelland/terraform-nomad-redash
+              
       - name: Print outputs
         run: |
             echo ${{ steps.my_step_id.outputs.id }}
