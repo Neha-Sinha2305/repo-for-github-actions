@@ -15,7 +15,7 @@ jobs:
   # This workflow contains a single job called "build"
   enforce-changelog:
     runs-on: ubuntu-latest
-    if: github.event.action != 'closed' && github.event == 'pull_request'
+    if: github.event.action != 'closed'
     name: test sds
     steps:
       - run: echo hello this is pull request
