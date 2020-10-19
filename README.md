@@ -2,7 +2,7 @@
       <img alt="Build" src="https://github.com/fredrikhgrelland/vagrant-hashistack/workflows/CI/CD/badge.svg?event=pull_request" />
 </a>
 
-![example branch parameter](https://github.com/fredrikhgrelland/vagrant-hashistack/workflows/CI%2FCD/badge.svg?branch=master)
+![example branch parameter](https://github.com/fredrikhgrelland/vagrant-hashistack/workflows/CI%2FCD/badge.svg)
 
 
 # repo-for-github-actions
