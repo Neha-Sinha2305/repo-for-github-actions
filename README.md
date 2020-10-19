@@ -2,6 +2,8 @@
       <img alt="Build" src="https://github.com/fredrikhgrelland/vagrant-hashistack/workflows/CI/CD/badge.svg?event=pull_request" />
 </a>
 
+(https://github.com/actions/fredrikhgrelland/vagrant-hashistack/workflows/CI/CD/badge.svg?branch=master")
+
 
 # repo-for-github-actions
 [what](#what)
