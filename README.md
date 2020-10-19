@@ -1,4 +1,4 @@
-<a href="https://github.com/fredrikhgrelland/vagrant-hashistack/actions">
+<a href="https://github.com/fredrikhgrelland/vagrant-hashistack/actions?query=branch%3Amaster">
       <img alt="Build" src="https://github.com/fredrikhgrelland/vagrant-hashistack/workflows/CI/CD/badge.svg?branch=master" />
 </a>
 
